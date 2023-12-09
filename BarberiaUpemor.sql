@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS barberia_upemor;
 CREATE DATABASE IF NOT EXISTS barberia_upemor;
 USE barberia_upemor;
 
-CREATE TABLE Cliente (
+CREATE TABLE Clientes (
 	idCliente INT AUTO_INCREMENT PRIMARY KEY,
 	nombre VARCHAR(50) NOT NULL,
 	apellido VARCHAR(50),
@@ -12,10 +12,10 @@ CREATE TABLE Cliente (
 	Genero VARCHAR(5),
 	Registro DATE DEFAULT current_timestamp
 );
-INSERT INTO Cliente (nombre, apellido, email, contra, telefono, Genero) VALUES 
+INSERT INTO Clientes (nombre, apellido, email, contra, telefono, Genero) VALUES 
 ('Juan', 'Pérez', 'juan@example.com', 'contraseña1', '1234567890', 'H'),
-('María', 'Gómez', 'maria@example.com', 'contraseña2', '9876543210', 'M');
-
+('María', 'Gómez', 'maria@example.com', 'contraseña2', '9876543210', 'M'),
+('Max', 'Diaz', 'max175@gmail.com', 'max175', '7771234567', 'H');
 CREATE TABLE servicios (
 	idServicios INT AUTO_INCREMENT PRIMARY KEY,
 	especialidad VARCHAR(50) NOT NULL,
