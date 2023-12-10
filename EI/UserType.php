@@ -6,6 +6,7 @@
     if (isset($_SESSION['email'])) {
         $user = $_SESSION['email'];
         $password = $_SESSION['contra'];
+        $idUser= $_SESSION['idusuario'];
         echo "<h1>Iniciaste sesion como: ".$user."</h1>"; ?>
         <?php
             

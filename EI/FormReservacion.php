@@ -30,62 +30,47 @@
   ?>
   <main class="main">
     <div class="container mt-4 w-50" >
-      <form name="frm" id="frm" >
-        
+      <form name="frm" id="frm" method="POST" action="Static/connect/ValidacionFormReservacion.php">
+        <input type="hidden" name="idSer" id="idServ" value="<?php echo $ID; ?>">
         <!-- servicio -->
         <div class="mb-3">
-          <label for="nombre" class="form-label">Servicios:</label>
+          
+          <label for="servicio" class="form-label">Servicios:</label>
+          <input type="hidden" name="servicio" id="servicio" value="<?php echo $nombre; ?>">
           <input type="text" name="servicio" id="servicio" class="form-control" value="<?php echo $nombre;?>" disabled>
           
         </div>
 
         <!-- precio -->
         <div class="mb-3">
-          <label for="apellido" class="form-label">Precio:</label>
-          <input type="text" name="precio" id="precio" class="form-control" value="<?php echo $precio;?>" disabled>
-          
+          <label for="precio" class="form-label">Precio:</label>
+          <input type="text" name="precio" id="precio" class="form-control" value="<?php echo $precio;?>" disabled >
+          <input type="hidden" name="precio" id="precio" value="<?php echo $precio; ?> " readonly>
+
         </div>
 
         <!-- dia -->
         <div class="mb-3">
-          <label for="fecha" class="form-label">Selecciona una fecha a partir de hoy:</label>
+          <label for="fecha" class="form-label">Selecciona una fecha para la cita:</label>
           <input type="date" class="form-control" id="fecha" name="fecha" min="<?php echo date('Y-m-d'); ?>">
           <p class="alert alert-danger d-none" id="tel">Ingresa el número de teléfono válido!!</p>
         </div>
 
-        <!-- Email -->
+        <!-- hora -->
+        <label for="hora" class="form-label">Selecciona una hora:</label>
+        <select name="hora" id="hora">
+          <?php
+          // Genera las opciones desde las 8 AM hasta las 7 PM
+          for ($hora = 8; $hora <= 19; $hora++) {
+              // Ajusta el formato de las horas (puedes usar 'h' para formato de 12 horas si lo prefieres)
+              $horaFormato = sprintf('%02d:00:00', $hora);
+              echo "<option name='horaS' id='horaS' class='form-control' value=\"$horaFormato\">$horaFormato</option>";
+          }
+          ?>
+        </select>
         <div class="mb-3">
-          <label for="email" class="form-label">E-mail:</label>
-          <input type="text" name="email" id="email" class="form-control">
-          <p class="alert alert-danger d-none" id="mail">Ingresa el correo válido!!</p>
-        </div>
-
-        <!-- Contra -->
-        <div class="mb-3">
-          <label for="contrasena" class="form-label">Contraseña:</label>
-          <input type="text" name="contrasena" id="contrasena" class="form-control" onchange="frm.direccion.value=frm.direccion.value.toUpperCase()">
-          <p class="alert alert-danger d-none" id="dir">Ingresa la contraseña!!</p>
-        </div>
-
-        <div class="mb-3">
-          <label for="sexo" class="form-label">Género:</label>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="lsexo" id="lsexo1" value="Mujer">
-            <label class="form-check-label" for="lsexo1">Mujer</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="lsexo" id="lsexo2" value="Hombre">
-            <label class="form-check-label" for="lsexo2">Hombre</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="lsexo" id="lsexo3" value="Otro">
-            <label class="form-check-label" for="lsexo3">Otro</label>
-          </div>
-          <p class="alert alert-danger d-none" id="s">Selecciona tu género!!</p>
-        </div>
-
-        <div class="mb-3">
-          <input type="button" value="Enviar Datos" class="btn btn-primary" onclick="validacion()">
+          <input type="submit" value="Enviar Datos" class="btn btn-primary" >
+          <a href="ServiciosClient.php"  class="btn btn-primary">Regresar</a>
           <p class="alert alert-success d-none" id="btn">Gracias por contestar la encuesta!!</p>
         </div>
       </form>
