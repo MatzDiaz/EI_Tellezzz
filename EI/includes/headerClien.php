@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App Barberia</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;900&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="../Static/css/styles.css">
+    <link rel="stylesheet" href="Static/css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -31,11 +31,9 @@
             <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
             </li>
+            
             <li class="nav-item">
-            <a class="nav-link" href="nosotros.php">Acerca de nosotros</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="servicios.php">Servicios</a>
+            <a class="nav-link" href="ServiciosClient.php">Servicios</a>
             </li>
             
             <li class="nav-item">
