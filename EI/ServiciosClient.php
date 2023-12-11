@@ -1,16 +1,22 @@
 <?php include 'Usertype.php'?>
+<?php 
+    if(!(isset($_SESSION['email']))){
+        header("Location: login.php");
+    }
+    
+    ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios</title>
-  <link rel="stylesheet" href="../Static/css/styles.css">
+  <link rel="stylesheet" href="Static/css/styles.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<h1>Servicoos como cliente</h1>
+<center><h1>Catálogo de servicios</h1></center>
     <div class="container mt-4">
     <div class="row">
  
@@ -31,7 +37,10 @@
                 <p>Precio: $<?php echo $precio; ?></p>
                 
             </div>
-            <a href="FormReservacion.php?idServicios=<?php echo $id ; ?>">Hacer reservacion</a>
+            <div class="reservacion">
+                <a href="FormReservacion.php?idServicios=<?php echo $id ; ?>">Hacer reservación</a>
+            </div>
+            
             </div>
 
             <?php
@@ -42,6 +51,6 @@
     </div>
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

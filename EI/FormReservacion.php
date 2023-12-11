@@ -7,6 +7,7 @@
   <title>Aplicación</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/estilos.css" rel="stylesheet">
+  <script type="text/javaScript" src="Static/js/validaciones.js"></script>
 </head>
 <body class="body">
   <header class="header">
@@ -30,7 +31,7 @@
   ?>
   <main class="main">
     <div class="container mt-4 w-50" >
-      <form name="frm" id="frm" method="POST" action="Static/connect/ValidacionFormReservacion.php">
+      <form name="frm" id="frm" method="POST" action="Static/connect/ValidacionFormReservacion.php" onsubmit="return validacionAgenda();">
         <input type="hidden" name="idSer" id="idServ" value="<?php echo $ID; ?>">
         <!-- servicio -->
         <div class="mb-3">
@@ -69,7 +70,7 @@
           ?>
         </select>
         <div class="mb-3">
-          <input type="submit" value="Enviar Datos" class="btn btn-primary" >
+          <input type="submit" value="Enviar Datos" class="btn btn-primary"  >
           <a href="ServiciosClient.php"  class="btn btn-primary">Regresar</a>
           <p class="alert alert-success d-none" id="btn">Gracias por contestar la encuesta!!</p>
         </div>
@@ -77,5 +78,5 @@
     </div>
   </main>
 </body>
-<script type="text/javaScript" src="Static/js/validaciones.js"></script>
+
 </html>
