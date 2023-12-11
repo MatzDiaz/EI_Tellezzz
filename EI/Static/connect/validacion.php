@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Inicio de sesión exitoso
         
         $_SESSION['email'] = $usuario;
+        $_SESSION['idusuario'] = $row['idCliente'];
         $_SESSION['contra'] = $contrasena;
         header("location: ../../index.php"); // Página de bienvenida o página después de iniciar sesión
     } else {
