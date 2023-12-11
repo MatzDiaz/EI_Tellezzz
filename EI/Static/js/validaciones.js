@@ -4,6 +4,18 @@ var expreTel =/^\d{7,14}$/;
 var expreEmail =/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 var expreComen = /^.{20,128}$/;
 
+function validacionAgenda(){
+    var fecha = document.getElementById('fecha').value;
+
+  if (fecha == '') {
+    alert('Por favor, ingrese una fecha.');
+    return false;
+  }
+  
+  return true;
+}
+
+
 function validacion() {
     var nombre = document.frm.nombre;
     if(!expreNomyApe.test(nombre.value)){
