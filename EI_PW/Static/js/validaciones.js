@@ -59,24 +59,22 @@ function validarTelefono() {
     var expTel = /^[0-9]{10}$/;
     var te = document.getElementById('tel');
     var telefono = document.getElementById('telefono');
-    telefono.addEventListener('input', validarTelefono);
 
-    if (expTel.test(telefono.value)) {
-        telefono.value = ''; 
-        telefono.focus();
+    if (!expTel.test(telefono.value)) {
         te.style.display = "block";
         return false;
-    }else{
+    } else {
         te.style.display = "none";
         return true;
     }
 }
 
+
 function validarEmail() {
     var expEm = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     var em = document.getElementById('mail');
     var email = document.getElementById('email');
-    email.addEventListener('input', validarEmail);
+    
 
     if (!expEm.test(email.value)) {
         email.value = ''; 
@@ -92,9 +90,9 @@ function validarEmail() {
 function validarContrasena() {
     var paswo = /^[A-Za-z0-9#&@]{4,8}$/;
     var contrasena = document.getElementById('contrasena');
-    var con = document.getElementById('contra');
+    var errorPas = document.getElementById('contra');
 
-    if (!contrasena.test(paswo)) {
+    if (!paswo.test(contrasena.value)) {
         contrasena.value = ''; 
         contrasena.focus();
         errorPas.style.display = "block";
@@ -105,15 +103,119 @@ function validarContrasena() {
     }
 }
 
-function validarSexo() {
+
+function validarGenero() {
+    var generoRadios = document.getElementsByName('genero');
+    var errorGenero = document.getElementById('errorGenero');
     var seleccionado = false;
-    for (var i = 0; i < sexo.length; i++) {
-        if (sexo[i].checked) {
+
+    for (var i = 0; i < generoRadios.length; i++) {
+        if (generoRadios[i].checked) {
             seleccionado = true;
             break;
         }
     }
+
     if (!seleccionado) {
-        alert('Selecciona tu género');
+        errorGenero.style.display = "block";
+        return false;
+    } else {
+        errorGenero.style.display = "none";
+        return true;
     }
+}
+
+
+function validarFromularioRegistro(){
+    var generoRadios = document.getElementsByName('lsexo');
+    var errorGenero = document.getElementById('s');
+    var seleccionado = false;
+
+    for (var i = 0; i < generoRadios.length; i++) {
+        if (generoRadios[i].checked) {
+            seleccionado = true;
+            break;
+        }
+    }
+
+    if (!seleccionado) {
+        errorGenero.style.display = "block";
+        return false;
+    } else {
+        errorGenero.style.display = "none";
+        
+    }
+
+
+    var paswo = /^[A-Za-z0-9#&@]{4,8}$/;
+    var contrasena = document.getElementById('contrasena');
+    var errorPas = document.getElementById('contra');
+
+    if (!paswo.test(contrasena.value)) {
+        contrasena.value = ''; 
+        contrasena.focus();
+        errorPas.style.display = "block";
+        return false;
+    } else {
+        errorPas.style.display = "none";
+        
+    }
+
+    var expEm = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var em = document.getElementById('mail');
+    var email = document.getElementById('email');
+    
+
+    if (!expEm.test(email.value)) {
+        email.value = ''; 
+        email.focus();
+        em.style.display = "block";
+        return false;
+    }else{
+        em.style.display = "none";
+        
+    }
+
+    var expTel = /^[0-9]{10}$/;
+    var te = document.getElementById('tel');
+    var telefono = document.getElementById('telefono');
+
+    if (!expTel.test(telefono.value)) {
+        te.style.display = "block";
+        return false;
+    } else {
+        te.style.display = "none";
+        
+    }
+
+    var expApe = /^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/;
+    var ap = document.getElementById('app');
+    var apellido = document.getElementById('apellido');
+    apellido.addEventListener('input', validarApellido);
+
+    if (!expApe.test(apellido.value)) {
+        apellido.value = '';
+        apellido.focus();
+        ap.style.display = "block";
+        return false;
+    }else{
+        ap.style.display = "none";
+        
+    }
+    var expNom = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s']+$/;
+    var no = document.getElementById('nom');
+    var nombre = document.getElementById('nombre');
+    nombre.addEventListener('input', validarNombre);
+
+    if (!expNom.test(nombre.value)) {
+        nombre.value = ''; 
+        nombre.focus(); 
+        no.style.display = "block";
+        return false;
+    }else{
+        no.style.display = "none";
+       
+    }
+
+    return true;
 }
