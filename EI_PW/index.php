@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bienvenida a la Barbería</title>
+  <link rel="stylesheet" href="Static/css/styles.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -46,8 +47,8 @@
   </div>
 </section>
 
-<section class="container mt-4">
-    <h2 class="text-center">Consejos de Cuidado del Cabello y la Barba</h2>
+<section class="container mt-4 bg-dark">
+    <h2 class="text-center text-white">Consejos de Cuidado del Cabello y la Barba</h2>
     <div class="row">
         <div class="col-md-6">
         <div class="card mb-3">

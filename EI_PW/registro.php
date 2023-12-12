@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Aplicación</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilos.css" rel="stylesheet">
+  <link rel="stylesheet" href="Static/css/styles.css">
   <script type="text/javaScript" src="Static/js/validaciones.js"></script>
 </head>
 <body class="body">

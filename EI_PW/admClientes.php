@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Servicios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javaScript" src="Static/js/validaciones.js"></script>
 </head>
 <body>
     <div class="container mt-4">
@@ -19,11 +20,10 @@
                 <tr class="table-dark">
                     <th>ID</th>
                     <th>NOMBRE</th>
-                    <th>APELLIDO</th>
                     <th>CORREO</th>
-                    <th>CONTRASEÑA</th>
-                    <th>TELEFONO</th>
-                    <th>GÉNERO</th>
+                    <th>FECHA REGISTRO</th>
+                    <th></th>
+                    <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -35,14 +35,16 @@
                         <tr>
                             <td name="id"><?=$datos->idCliente?></td>
                             <td><?=$datos->nombre?></td>
-                            <td><?=$datos->apellido?></td>
                             <td><?=$datos->email?></td>
-                            <td><?=$datos->contra?></td>
-                            <td><?=$datos->telefono?></td>
-                            <td><?=$datos->Genero?></td>
+                            <td><?=$datos->Registro?></td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#mdObservar<?=$datos->idCliente?>"><i class="far fa-eye"></i></button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#mdActualizar<?=$datos->idCliente?>"><i class="fas fa-pencil-alt"></i></button>
+                            </td>
                             <td>
                                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#mdEliminar<?=$datos->idCliente?>"><i class="fas fa-trash-alt"></i></button>
-                                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#mdActualizar<?=$datos->idCliente?>"><i class="fas fa-pencil-alt"></i></button>
                             </td>
 
                         <!--Modal para borrar -->
@@ -126,7 +128,48 @@
                         </div>
                         </div>
                         </form>
-                        </tr>
+
+                        <div class="modal fade" id="mdObservar<?=$datos->idCliente?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Información</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input name = "idCl" value="<?=$datos->idCliente?>" hidden>
+                                <!-- Nombre -->
+                                <div class="mb-3">
+                                <input type="text" name="nombre" id="nombre" class="form-control" value="<?=$datos->nombre?>" disabled>
+                                </div>
+
+                                <!-- Apellido -->
+                                <div class="mb-3">
+                                <input type="text" name="apellido" id="apellido" class="form-control" value="<?=$datos->apellido?>" disabled>
+                                </div>
+
+                                <!-- Teléfono -->
+                                <div class="mb-3">
+                                <input type="text" name="telefono" id="telefono" class="form-control" value="<?=$datos->telefono?>" disabled>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="mb-3">
+                                <input type="text" name="email" id="email" class="form-control" value="<?=$datos->email?>" disabled>
+                                </div>
+
+                                <!-- Contra -->
+                                <div class="mb-3">
+                                <input type="text" name="contrasena" id="contrasena" class="form-control" value="<?=$datos->contra?>" disabled>
+                                </div>
+
+                                <!--Sexo si porfavor :,)-->
+                                <div class="mb-3">
+                                <input type="text" name="sexo" id="contrasena" class="form-control disabled" value="<?=$datos->Genero?>" disabled>
+                                </div>
+                            </div>
+                            </div>
+                    </tr>
                    <?php }  ?>
 
                 <!--Modal Registro-->
@@ -143,8 +186,8 @@
                             <!-- Nombre -->
                             <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre:</label>
-                            <input type="text" name="nombrer" id="nombrer" class="form-control" onchange="frm.nombre.value=frm.nombre.value.toUpperCase()">
-                            <p class="alert alert-danger d-none" id="nom">Ingresa el nombre válido!!</p>
+                            <input type="text" name="nombre" id="nombre" class="form-control" oninput="validarNombre()">
+                            <p class="alert alert-danger" id="nom" style="display: none;">Ingresa el nombre válido!!</p>
                             </div>
 
                             <!-- Apellido -->

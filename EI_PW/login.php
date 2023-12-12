@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario de Inicio de Sesión</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Vincula tu archivo JavaScript externo -->
+  <link rel="stylesheet" href="Static/css/styles.css">
   <script src="Static/js/validacion.js"></script>
 </head>
 <body>
